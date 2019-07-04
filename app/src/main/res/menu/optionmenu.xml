@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/data_kantor"
+        android:title="Data Kantor"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/data_karyawan"
+        android:title="Data Karyawan"
+        app:showAsAction = "never"/>
+
+    <item
+        android:id="@+id/about_apps"
+        android:title="About Apps"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/logout"
+        android:title="logout"
+        app:showAsAction="never"/>
+
+
+</menu>
