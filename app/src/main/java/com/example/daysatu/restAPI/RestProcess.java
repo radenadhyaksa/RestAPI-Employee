@@ -1,4 +1,4 @@
-package com.example.daysatu;
+package com.example.daysatu.restAPI;
 
 import org.json.JSONArray;
 import org.json.JSONException;

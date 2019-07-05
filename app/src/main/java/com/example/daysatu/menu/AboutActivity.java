@@ -7,7 +7,7 @@ import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.example.daysatu.R;
-import com.example.daysatu.RestProcess;
+import com.example.daysatu.restAPI.RestProcess;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 

@@ -3,13 +3,12 @@ package com.example.daysatu;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.daysatu.restAPI.RestProcess;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -17,7 +16,6 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONException;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.channels.AsynchronousChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 
