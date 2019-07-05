@@ -1,4 +1,4 @@
-package com.example.daysatu;
+package com.example.daysatu.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.daysatu.R;
 import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;

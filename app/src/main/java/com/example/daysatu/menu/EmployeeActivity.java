@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.daysatu.ListAdapter;
+import com.example.daysatu.adapter.ListAdapter;
 import com.example.daysatu.R;
 import com.example.daysatu.RestProcess;
 import com.loopj.android.http.AsyncHttpClient;
