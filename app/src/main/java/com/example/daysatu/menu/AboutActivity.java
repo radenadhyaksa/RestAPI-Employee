@@ -1,11 +1,13 @@
-package com.example.daysatu;
+package com.example.daysatu.menu;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
+import android.webkit.WebView;
 import android.widget.Toast;
 
+import com.example.daysatu.R;
+import com.example.daysatu.RestProcess;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -17,33 +19,31 @@ import java.util.HashMap;
 
 import cz.msebera.android.httpclient.Header;
 
-public class KantorActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
-    //API proses
+    //Declare RestAPI
     private RestProcess rest_bebas;
 
-    //variable listview
-    ListView lvDataKantor;
+    //Local variable
+    private WebView webView;
 
-    //deklarasi class adapter
-    ListAdapter adapter;
-
-    ArrayList<HashMap<String, String>> dataKantor_arrayList = new ArrayList<HashMap<String, String>>();
+    //eclare Array List
+    ArrayList<HashMap<String, String>> dataAbout_arrayList = new ArrayList<HashMap<String, String>>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kantor);
+        setContentView(R.layout.activity_about);
 
         rest_bebas = new RestProcess();
+        webView = (WebView) findViewById(R.id.wvAbout);
+        getAbout(null);
 
-        lvDataKantor = (ListView) findViewById(R.id.lvDataKantor);
-        getDataKantor(null);
     }
 
 
-    private void getDataKantor(final View view) {
+    private void getAbout(final View view) {
 
         HashMap<String, String> data_api = new HashMap<String, String>();
         data_api = rest_bebas.apiSetting();
@@ -51,6 +51,7 @@ public class KantorActivity extends AppCompatActivity {
         String base_url;
 
         base_url = data_api.get("str_ws_addr") + "/api/training/office/format/json";
+
 
         client.setBasicAuth(data_api.get("str_ws_user"), data_api.get("str_ws_pass"));
         client.post(base_url, new AsyncHttpResponseHandler() {
@@ -65,39 +66,41 @@ public class KantorActivity extends AppCompatActivity {
                 }
 
                 try {
-                    displayDataKantor(view, resp_content);
+                    displayAbout(view, resp_content);
                 } catch (Throwable t) {
-                    Toast.makeText(KantorActivity.this, "koneksi GAGAL BRO 1", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AboutActivity.this, "koneksi GAGAL BRO 1", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Toast.makeText(KantorActivity.this, "Koneksi gagal bro 2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AboutActivity.this, "koneksi gagal bro 2", Toast.LENGTH_LONG).show();
 
             }
         });
     }
 
-    private void displayDataKantor(View view, String resp_content) {
-
+    private void displayAbout(final View view, String resp_content) {
         try {
-            dataKantor_arrayList = rest_bebas.getJsonData(resp_content);
+            dataAbout_arrayList = rest_bebas.getJsonData(resp_content);
 
-            if (dataKantor_arrayList.get(0).get("var_result").equals("1")) {
+            if (dataAbout_arrayList.get(0).get("var_result").equals("1")) {
 
-                dataKantor_arrayList.remove(0);
-                adapter = new ListAdapter(KantorActivity.this, dataKantor_arrayList, 2);
-                lvDataKantor.setAdapter(adapter);
-                Toast.makeText(KantorActivity.this, "koneksi Berhasil gan1", Toast.LENGTH_LONG).show();
+                String strHtml = dataAbout_arrayList.get(1).get("about_apps");
+                webView.loadData(strHtml, "text/html", null);
+
+//                dataAbout_arrayList.remove(0);
+//                adapter = new ListAdapter(EmployeeActivity.this, dataAbout_arrayList, 1);
+//                webView.setAdapter(adapter);
+                Toast.makeText(AboutActivity.this, "koneksi Berhasil gan1", Toast.LENGTH_LONG).show();
 
             }else {
-                Toast.makeText(KantorActivity.this,"koneksi gagal gan2", Toast.LENGTH_LONG).show();
+                Toast.makeText(AboutActivity.this,"koneksi gagal gan2", Toast.LENGTH_LONG).show();
             }
 
 
         }catch (JSONException e) {
-            Toast.makeText(KantorActivity.this, "koneksi gagal gan3", Toast.LENGTH_LONG).show();
+            Toast.makeText(AboutActivity.this, "koneksi gagal gan3", Toast.LENGTH_LONG).show();
         }
     }
 }

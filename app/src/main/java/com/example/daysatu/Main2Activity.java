@@ -7,8 +7,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.daysatu.menu.AboutApps;
-import com.example.daysatu.menu.DataKaryawan;
+import com.example.daysatu.menu.AboutActivity;
+import com.example.daysatu.menu.EmployeeActivity;
+import com.example.daysatu.menu.KantorActivity;
 
 public class Main2Activity extends AppCompatActivity {
 

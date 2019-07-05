@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".KantorActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".EmployeeActivity" />
+        <activity android:name=".menu.KantorActivity" />
+        <activity android:name=".menu.AboutActivity" />
+        <activity android:name=".menu.EmployeeActivity" />
         <activity android:name=".menu.AboutApps" />
         <activity android:name=".menu.DataKaryawan" />
         <activity android:name=".Main2Activity" />

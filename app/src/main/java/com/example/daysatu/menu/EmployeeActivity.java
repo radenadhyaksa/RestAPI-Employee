@@ -1,15 +1,16 @@
-package com.example.daysatu;
+package com.example.daysatu.menu;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.daysatu.ListAdapter;
+import com.example.daysatu.R;
+import com.example.daysatu.RestProcess;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 
