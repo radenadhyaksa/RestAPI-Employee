@@ -47,3 +47,6 @@ public class Main2Activity extends AppCompatActivity {
 }
 
 
+COBA COBA JANGAN
+
+
